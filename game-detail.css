@@ -1,0 +1,138 @@
+.detail-toolbar {
+  margin-bottom: 22px;
+}
+
+.detail-back-link {
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.detail-back-link:hover,
+.detail-back-link:focus-visible {
+  color: #ffad55;
+  text-decoration: underline;
+}
+
+.detail-status {
+  margin: 20px 0;
+}
+
+.game-detail-content[hidden] {
+  display: none;
+}
+
+.detail-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: center;
+}
+
+.detail-cover {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #151515;
+}
+
+.detail-title {
+  margin: 0 0 20px;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.detail-favorite {
+  position: static;
+  margin: 0 0 16px;
+}
+
+.detail-rating {
+  color: #c9d0da;
+  font: 0.95rem/1.6 Arial, sans-serif;
+}
+
+.detail-website {
+  display: inline-block;
+  margin-top: 12px;
+  color: #ffad55;
+  font: 700 0.9rem Arial, sans-serif;
+}
+
+.detail-description-section {
+  max-width: 1000px;
+  margin-top: clamp(28px, 5vw, 56px);
+}
+
+.detail-description-section h2,
+.detail-facts h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.detail-description {
+  margin: 0;
+  color: #d5d8df;
+  font: 1rem/1.7 Arial, sans-serif;
+  white-space: pre-line;
+}
+
+.detail-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #333;
+}
+
+.detail-facts h2 {
+  color: #ffad55;
+  font-size: 0.82rem;
+}
+
+.detail-facts p {
+  margin: 0;
+  color: #d5d8df;
+  font: 0.9rem/1.5 Arial, sans-serif;
+}
+
+.detail-attribution {
+  margin-top: 32px;
+  color: #8f98a5;
+  font: 0.75rem Arial, sans-serif;
+}
+
+.detail-attribution a {
+  color: #c9d0da;
+}
+
+@media (max-width: 700px) {
+  .detail-toolbar {
+    margin-bottom: 14px;
+  }
+
+  .detail-header {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .detail-cover {
+    max-height: 360px;
+  }
+
+  .detail-title {
+    margin-bottom: 12px;
+  }
+
+  .detail-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+}

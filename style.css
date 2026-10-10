@@ -1,0 +1,890 @@
+      :root {
+        --bg: #04070c;
+        --panel: #060b12;
+        --text: #f5f5f5;
+        --muted: #c9d0da;
+        --blue: #1b2ae7;
+        --blue-bright: #2d5bff;
+        --orange: #ff9b2f;
+        --orange-dark: #ff7d1b;
+        --light: #efefef;
+        --shadow-blue: rgba(29, 89, 255, 0.75);
+        --shadow-orange: rgba(255, 155, 47, 0.7);
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Orbitron", "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      .page {
+        width: min(92vw, 430px);
+        padding: 18px 0 10px;
+      }
+
+      .logo-wrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 8px;
+      }
+
+      .logo-image {
+        display: block;
+        width: min(100%, 250px);
+        height: auto;
+        mix-blend-mode: screen;
+      }
+
+      .login-panel {
+        min-width: 0;
+      }
+
+      .title {
+        text-align: center;
+        margin-top: 10px;
+        letter-spacing: 0.08em;
+      }
+
+      .title .welcome {
+        display: block;
+        margin-top: 18px;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+        font-weight: 900;
+        color: var(--text);
+        text-transform: uppercase;
+        text-shadow: 0 0 12px rgba(255,255,255,0.1);
+      }
+
+      .login-box {
+        margin-top: 22px;
+      }
+
+      .field {
+        position: relative;
+        margin-bottom: 18px;
+      }
+
+      .field input {
+        width: 100%;
+        height: 58px;
+        border-radius: 12px;
+        border: 3px solid rgba(31, 44, 72, 0.9);
+        background: rgba(255, 255, 255, 0.85);
+        color: #111827;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 0 18px;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0,0,0,0.2);
+      }
+
+      .field input::placeholder {
+        color: rgba(17, 24, 39, 0.72);
+        font-weight: 700;
+      }
+
+      .field.password input {
+        padding-right: 52px;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: auto;
+        bottom: 5px;
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: rgba(17, 24, 39, 0.72);
+        cursor: pointer;
+      }
+
+      .eye-icon {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.7;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .toggle-password[aria-pressed="true"] .eye-slash {
+        display: none;
+      }
+
+      .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin: 4px 0 18px;
+        font-size: 0.82rem;
+        color: #dfe9f7;
+        text-transform: uppercase;
+      }
+
+      .remember {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        user-select: none;
+      }
+
+      .remember input {
+        width: 16px;
+        height: 16px;
+        accent-color: var(--orange);
+      }
+
+      .forgot {
+        color: #f4f5f7;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .signin-btn {
+        width: 100%;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(180deg, #ffb15b 0%, #ff8b2d 100%);
+        color: #0d1422;
+        height: 58px;
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 0 8px 0 rgba(0,0,0,0.28), 0 0 18px rgba(255, 155, 47, 0.5);
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 24px 0 16px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        color: #dfe8f7;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        border-top: 3px solid rgba(255,255,255,0.28);
+      }
+
+      .divider span {
+        padding: 0 18px;
+      }
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .social {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 3px solid rgba(255,255,255,0.25);
+        font-weight: 900;
+        font-size: 1.9rem;
+        text-decoration: none;
+      }
+
+      .social.google { background: #fff; color: #4285f4; }
+      .social.apple { background: #111827; color: #f7f7f7; }
+      .social.facebook { background: #3d5af1; color: #fff; }
+      .social .social-icon { width: 22px; height: 22px; }
+      .social.apple .social-icon { width: 26px; height: 26px; }
+
+      .signup {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        column-gap: 8px;
+        text-align: center;
+        color: #edf3ff;
+        font-size: 1.4rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        font-weight: 900;
+        margin-top: 10px;
+      }
+
+      .signup::before,
+      .signup::after {
+        content: "";
+        border-top: 1px solid rgba(255, 255, 255, 0.75);
+      }
+
+      .signup::before {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .signup::after {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      .signup span {
+        grid-column: 2;
+        grid-row: 1;
+        white-space: nowrap;
+      }
+
+      .signup a {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        color: var(--orange);
+        text-decoration: none;
+      }
+
+      @media (max-width: 440px) {
+        .page {
+          width: min(92vw, 360px);
+        }
+
+        .title .welcome {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (min-width: 601px) {
+        .login-page .title {
+          text-align: center;
+        }
+
+        .page {
+          display: grid;
+          grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+          align-items: center;
+          gap: clamp(12px, 2vw, 24px);
+          width: min(100%, 1200px);
+          min-height: 100vh;
+          padding: 24px 3vw;
+        }
+
+        .logo-wrap {
+          margin: 0;
+        }
+
+        .logo-image {
+          width: min(100%, 420px);
+        }
+
+        .login-panel {
+          width: min(100%, 430px, 42vw);
+          justify-self: start;
+        }
+
+        .title {
+          margin: 0;
+          text-align: left;
+          letter-spacing: 0;
+        }
+
+        .title .welcome {
+          margin: 0;
+          font-family: "Orbitron", "Segoe UI", sans-serif;
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          line-height: 1;
+          letter-spacing: 0.035em;
+          white-space: nowrap;
+        }
+
+        .login-box {
+          margin-top: 22px;
+        }
+
+        .field {
+          margin-bottom: 10px;
+        }
+
+        .field::before {
+          display: block;
+          margin-bottom: 3px;
+          color: #f3f3f3;
+          font-family: "Orbitron", "Segoe UI", sans-serif;
+          font-size: 1rem;
+          font-weight: 800;
+          letter-spacing: 0.035em;
+          line-height: 1.1;
+        }
+
+        .field:first-child::before {
+          content: "USERNAME/EMAIL ADDRESS*";
+        }
+
+        .field.password::before {
+          content: "PASSWORD*";
+        }
+
+        .field input {
+          height: 38px;
+          border: 0;
+          border-radius: 3px;
+          background: #f1f1f1;
+          font-size: 1rem;
+          padding: 0 10px;
+          box-shadow: none;
+        }
+
+        .field input::placeholder {
+          color: transparent;
+        }
+
+        .field.password input {
+          padding-right: 42px;
+        }
+
+        .toggle-password {
+          right: 6px;
+        }
+
+        .options {
+          margin: -5px 0 10px;
+          font-size: 0.72rem;
+        }
+
+        .remember {
+          gap: 5px;
+        }
+
+        .remember input {
+          width: 16px;
+          height: 16px;
+          margin: 0;
+        }
+
+        .signin-btn {
+          display: block;
+          width: 60%;
+          height: 42px;
+          margin: 0 auto;
+          border: 2px solid #f3f3f3;
+          border-radius: 999px;
+          background: transparent;
+          color: #f3f3f3;
+          font-family: "Arial Narrow", "Segoe UI", sans-serif;
+          font-size: 1.45rem;
+          letter-spacing: 0.06em;
+          box-shadow: none;
+        }
+
+        .divider {
+          margin: 8px 0 8px;
+          font-size: 0.75rem;
+          letter-spacing: 0.06em;
+        }
+
+        .divider::before,
+        .divider::after {
+          border-top-width: 1px;
+          border-color: rgba(255, 255, 255, 0.65);
+        }
+
+        .divider span {
+          padding: 0 8px;
+          white-space: nowrap;
+        }
+
+        .socials {
+          gap: clamp(32px, 6vw, 68px);
+          margin-bottom: 6px;
+        }
+
+        .social {
+          width: 50px;
+          height: 36px;
+          border: 0;
+          border-radius: 999px;
+          background: #fff;
+        }
+
+        .social.google,
+        .social.apple,
+        .social.facebook {
+          background: #fff;
+        }
+
+        .social.google {
+          color: #4285f4;
+        }
+
+        .social.apple {
+          color: #050505;
+        }
+
+        .social.facebook {
+          color: #1877f2;
+        }
+
+        .signup {
+          margin-top: 0;
+          font-size: 0.75rem;
+          letter-spacing: 0.025em;
+          line-height: 1.45;
+        }
+
+        .signup a {
+          display: block;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .login-page .title {
+          text-align: center;
+        }
+
+        body {
+          display: block;
+          min-height: 100svh;
+        }
+
+        .page {
+          width: min(82vw, 290px);
+          padding: 0 0 12px;
+          margin: 0 auto;
+        }
+
+        .logo-image {
+          width: 230px;
+          max-width: 100%;
+        }
+
+        .logo-wrap {
+          margin-bottom: 0;
+        }
+
+        .title {
+          margin-top: -28px;
+          letter-spacing: 0.04em;
+        }
+
+        .title .welcome {
+          margin-top: 0;
+          font-family: "Orbitron", "Segoe UI", sans-serif;
+          font-size: clamp(1.35rem, 5.5vw, 1.5rem);
+          line-height: 1;
+          letter-spacing: 0.025em;
+          white-space: nowrap;
+        }
+
+        .login-box {
+          margin-top: 10px;
+        }
+
+        .field {
+          margin-bottom: 8px;
+        }
+
+        .field::before {
+          display: block;
+          margin-bottom: 2px;
+          color: #f3f3f3;
+          font-family: "Orbitron", "Segoe UI", sans-serif;
+          font-size: 0.78rem;
+          font-weight: 800;
+          letter-spacing: 0.04em;
+          line-height: 1.1;
+        }
+
+        .field:first-child::before {
+          content: "USERNAME/EMAIL ADDRESS*";
+        }
+
+        .field.password::before {
+          content: "PASSWORD*";
+        }
+
+        .field input {
+          height: 38px;
+          border-radius: 5px;
+          border: 2px solid rgba(31, 44, 72, 0.75);
+          font-size: 0.88rem;
+          padding: 0 8px;
+          letter-spacing: 0.035em;
+        }
+
+        .field input::placeholder {
+          color: transparent;
+        }
+
+        .field.password input {
+          padding-right: 40px;
+        }
+
+        .toggle-password {
+          right: 6px;
+          width: 26px;
+          height: 26px;
+        }
+
+        .options {
+          margin: -2px 0 8px;
+          gap: 6px;
+          font-size: 0.58rem;
+          letter-spacing: 0.02em;
+        }
+
+        .remember {
+          gap: 5px;
+        }
+
+        .remember input {
+          width: 14px;
+          height: 14px;
+          margin: 0;
+        }
+
+        .signin-btn {
+          display: block;
+          width: 72%;
+          height: 37px;
+          margin: 0 auto;
+          border: 2px solid #f3f3f3;
+          border-radius: 999px;
+          background: transparent;
+          color: #f3f3f3;
+          font-family: "Arial Narrow", "Segoe UI", sans-serif;
+          font-size: 1.35rem;
+          letter-spacing: 0.06em;
+          box-shadow: none;
+        }
+
+        .divider {
+          margin: 8px 0 5px;
+          font-size: 0.78rem;
+          letter-spacing: 0.08em;
+        }
+
+        .divider::before,
+        .divider::after {
+          border-top-width: 1px;
+          border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .divider span {
+          padding: 0 8px;
+          white-space: nowrap;
+        }
+
+        .socials {
+          gap: 30px;
+          margin-bottom: 7px;
+        }
+
+        .social {
+          width: 52px;
+          height: 36px;
+          border: 0;
+          border-radius: 999px;
+          font-size: 1.7rem;
+        }
+
+        .social.google,
+        .social.apple {
+          background: #fff;
+        }
+
+        .social.google {
+          color: #4285f4;
+        }
+
+        .social.apple {
+          color: #050505;
+        }
+
+        .social.facebook {
+          color: #1877f2;
+          background: #fff;
+        }
+
+        .social-icon {
+          display: block;
+          width: 22px;
+          height: 22px;
+        }
+
+        .social.apple .social-icon {
+          width: 26px;
+          height: 26px;
+        }
+
+        .signup {
+          max-width: 100%;
+          margin-top: 0;
+          font-size: 0.68rem;
+          letter-spacing: 0.015em;
+          line-height: 1.55;
+        }
+
+        .signup a {
+          display: block;
+        }
+      }
+
+      .signup-page .title .welcome {
+        font-size: clamp(1.3rem, 2.7vw, 2rem);
+      }
+
+      .signup-page .field label {
+        display: block;
+        margin-bottom: 3px;
+        color: #f3f3f3;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.035em;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .signup-page .field::before {
+        display: none;
+        content: none;
+      }
+
+      .signup-page .signup {
+        margin-top: 10px;
+      }
+
+      @media (min-width: 601px) {
+        .signup-page .title {
+          position: relative;
+          left: -24px;
+          text-align: center;
+        }
+
+        .signup-page .title .welcome {
+          font-size: clamp(1.3rem, 2.7vw, 2rem);
+          letter-spacing: 0.025em;
+        }
+
+        .signup-page .login-box {
+          margin-top: 14px;
+        }
+
+        .signup-page .field {
+          margin-bottom: 16px;
+        }
+
+        .signup-page .field label {
+          font-size: 1.05rem;
+        }
+
+        .signup-page .field input {
+          height: 38px;
+        }
+
+        .signup-page .signin-btn {
+          margin-top: -2px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .signup-page .title {
+          margin-top: -36px;
+        }
+
+        .signup-page .login-box {
+          width: 94%;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .signup-page .title .welcome {
+          font-size: clamp(0.82rem, 4vw, 1rem);
+          line-height: 1.1;
+          letter-spacing: 0.015em;
+          white-space: nowrap;
+        }
+
+        .signup-page .field::before {
+          display: none;
+          content: none;
+        }
+
+        .signup-page .field {
+          margin-bottom: 8px;
+        }
+
+        .signup-page .field label {
+          margin-bottom: 3px;
+          font-size: 0.88rem;
+        }
+
+        .signup-page .field input {
+          height: 30px;
+        }
+
+        .signup-page .signin-btn {
+          margin-top: 1px;
+        }
+
+        .signup-page .divider {
+          margin-top: 12px;
+        }
+
+        .signup-page .signup {
+          position: relative;
+          left: 50%;
+          width: calc(100vw - 12px);
+          max-width: none;
+          transform: translateX(-50%);
+          font-size: 0.62rem;
+        }
+      }
+
+      .forgot-page .title .welcome {
+        font-size: clamp(1.35rem, 2.8vw, 2rem);
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+      }
+
+      .forgot-page .title,
+      .forgot-description {
+        text-align: center;
+      }
+
+      .forgot-description {
+        margin: 12px 0 34px;
+        color: #edf3ff;
+        font-size: 0.92rem;
+        font-weight: 500;
+        letter-spacing: 0.035em;
+        line-height: 1.55;
+      }
+
+      .forgot-page .field label {
+        display: block;
+        margin-bottom: 4px;
+        color: #f3f3f3;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.035em;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .forgot-page .field::before {
+        display: none;
+        content: none;
+      }
+
+      .forgot-page .login-box {
+        margin-top: 0;
+      }
+
+      .forgot-page .field input {
+        height: 40px;
+        border: 0;
+        border-radius: 3px;
+        background: #f1f1f1;
+        box-shadow: none;
+      }
+
+      .forgot-page .signin-btn {
+        display: block;
+        width: 60%;
+        height: 46px;
+        margin: 18px auto 0;
+        border: 2px solid #f3f3f3;
+        border-radius: 999px;
+        background: transparent;
+        color: #f3f3f3;
+        font-family: "Orbitron", "Segoe UI", sans-serif;
+        font-size: 1.25rem;
+        letter-spacing: 0.035em;
+        box-shadow: none;
+      }
+
+      .forgot-page .signup {
+        margin-top: 72px;
+        font-size: 0.78rem;
+        letter-spacing: 0.015em;
+      }
+
+      @media (max-width: 600px) {
+        .forgot-page .logo-image {
+          width: 230px;
+          max-width: 100%;
+        }
+
+        .forgot-page .title {
+          margin-top: -36px;
+          text-align: center;
+        }
+
+        .forgot-page .title .welcome {
+          font-size: clamp(1rem, 5vw, 1.3rem);
+          white-space: nowrap;
+        }
+
+        .forgot-description {
+          margin: 10px 0 20px;
+          text-align: center;
+          font-size: 0.72rem;
+        }
+
+        .desktop-break {
+          display: none;
+        }
+
+        .forgot-page .login-box {
+          width: 94%;
+          margin: 0 auto;
+        }
+
+        .forgot-page .field label {
+          margin-bottom: 3px;
+          font-size: 0.82rem;
+        }
+
+        .forgot-page .field input {
+          height: 34px;
+        }
+
+        .forgot-page .signin-btn {
+          width: 72%;
+          height: 38px;
+          margin-top: 14px;
+          font-size: 1rem;
+        }
+
+        .forgot-page .signup {
+          position: relative;
+          left: 50%;
+          width: calc(100vw - 12px);
+          max-width: none;
+          margin-top: 52px;
+          transform: translateX(-50%);
+          font-size: 0.62rem;
+        }
+      }

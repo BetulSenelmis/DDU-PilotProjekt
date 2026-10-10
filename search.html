@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top 10 Games | Arcade Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="search.css" />
+  </head>
+  <body class="arcade-home arcade-search" data-page="search">
+    <main class="home-main">
+      <div class="home-toolbar search-toolbar">
+        <form class="game-search-form" id="game-search-form" role="search">
+          <label class="visually-hidden" for="game-search-input">Search games</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.4"/><path d="m16.3 16.3 5 5"/></svg>
+          <input id="game-search-input" type="search" placeholder="Search games" autocomplete="off" />
+          <button type="submit">Search</button>
+        </form>
+
+        <nav class="home-actions" aria-label="Main navigation">
+          <a class="home-action" href="home.html" aria-label="Home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>
+          </a>
+          <a class="home-action is-active" href="search.html" aria-label="Search games" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.4"/><path d="m16.3 16.3 5 5"/></svg>
+          </a>
+          <a class="home-action" href="recommendations.html" aria-label="Recommendations">
+            <img src="pics/brain%20logo.png" alt="" aria-hidden="true" />
+          </a>
+          <a class="home-action" href="profile.html" aria-label="Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <h1 class="search-page-title" id="search-page-title">TOP 10 GAMES</h1>
+      <p class="game-status" id="game-status" role="status" aria-live="polite">Loading top games…</p>
+
+      <section class="game-grid" id="game-grid" aria-label="Top 10 games" aria-busy="true">
+        <div class="game-card-skeleton" aria-hidden="true">
+          <div class="skeleton-cover"></div>
+          <div class="skeleton-line skeleton-title"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line skeleton-short"></div>
+        </div>
+        <div class="game-card-skeleton" aria-hidden="true">
+          <div class="skeleton-cover"></div>
+          <div class="skeleton-line skeleton-title"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line skeleton-short"></div>
+        </div>
+        <div class="game-card-skeleton" aria-hidden="true">
+          <div class="skeleton-cover"></div>
+          <div class="skeleton-line skeleton-title"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line skeleton-short"></div>
+        </div>
+        <div class="game-card-skeleton" aria-hidden="true">
+          <div class="skeleton-cover"></div>
+          <div class="skeleton-line skeleton-title"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line skeleton-short"></div>
+        </div>
+        <div class="game-card-skeleton" aria-hidden="true">
+          <div class="skeleton-cover"></div>
+          <div class="skeleton-line skeleton-title"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line skeleton-short"></div>
+        </div>
+        <div class="game-card-skeleton" aria-hidden="true">
+          <div class="skeleton-cover"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line skeleton-short"></div>
+        </div>
+      </section>
+      <button class="load-more-games" id="load-more-games" type="button" hidden>
+        Load more games
+      </button>
+      <section class="epic-store-section" aria-labelledby="epic-store-heading">
+        <h2 class="search-page-title epic-store-heading" id="epic-store-heading">
+          EPIC GAMES STORE LISTINGS
+        </h2>
+        <p class="game-status" id="epic-game-status" role="status" aria-live="polite">
+          Loading Epic Games Store games…
+        </p>
+        <div class="game-grid" id="epic-game-grid" aria-busy="true"></div>
+      </section>
+      <p class="game-attribution">
+        Game metadata by <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer">RAWG</a>
+        and <a href="https://store.epicgames.com/" target="_blank" rel="noopener noreferrer">Epic Games Store</a>.
+      </p>
+
+      <template id="game-card-template">
+        <article class="game-card">
+          <p class="game-card-rank" data-game-rank></p>
+          <button class="game-card-favorite" type="button" data-requires-login aria-pressed="false" aria-label="Save game to favorites">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.8 4.8 0 0 1 12 6.5a4.8 4.8 0 0 1 8.8 2.3Z"/></svg>
+          </button>
+          <a class="game-card-image-link" data-game-image-link>
+            <img class="game-card-image" data-game-image alt="" />
+          </a>
+          <h2 class="game-card-title" data-game-title><a data-game-title-link></a></h2>
+          <p class="game-card-category" data-game-category></p>
+          <p class="game-card-description" data-game-description></p>
+          <div class="game-card-genres" data-game-genres></div>
+          <p class="game-card-rating" data-game-rating></p>
+          <div class="game-card-store" data-game-store></div>
+        </article>
+      </template>
+      <template id="epic-game-card-template">
+        <article class="game-card epic-game-card">
+          <a class="game-card-image-link" data-epic-image-link target="_blank" rel="noopener noreferrer">
+            <img class="game-card-image" data-epic-image alt="" />
+          </a>
+          <h3 class="game-card-title"><a data-epic-title-link target="_blank" rel="noopener noreferrer"></a></h3>
+          <p class="game-card-category">Epic Games Store</p>
+          <p class="game-card-description" data-epic-description></p>
+          <p class="game-card-store" data-epic-price></p>
+        </article>
+      </template>
+    </main>
+
+    <script src="game-data.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game details | Arcade Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="game-detail.css" />
+  </head>
+  <body class="arcade-home arcade-game-detail" data-page="detail">
+    <main class="home-main">
+      <div class="home-toolbar detail-toolbar">
+        <a class="detail-back-link" href="search.html">← Back to games</a>
+        <nav class="home-actions" aria-label="Main navigation">
+          <a class="home-action" href="home.html" aria-label="Home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>
+          </a>
+          <a class="home-action" href="search.html" aria-label="Search games">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.4"/><path d="m16.3 16.3 5 5"/></svg>
+          </a>
+          <a class="home-action" href="recommendations.html" aria-label="Recommendations">
+            <img src="pics/brain%20logo.png" alt="" aria-hidden="true" />
+          </a>
+          <a class="home-action" href="profile.html" aria-label="Profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <p class="game-status detail-status" id="detail-status" role="status" aria-live="polite">
+        Loading game details…
+      </p>
+      <article class="game-detail-content" id="game-detail-content" hidden>
+        <header class="detail-header">
+          <img class="detail-cover" id="detail-cover" alt="" />
+          <div class="detail-heading">
+            <h1 class="detail-title" id="detail-title"></h1>
+            <button class="game-card-favorite detail-favorite" id="detail-favorite" type="button" data-requires-login aria-pressed="false" aria-label="Save game to favorites">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11s-8.8-5.9-8.8-11A4.8 4.8 0 0 1 12 6.5a4.8 4.8 0 0 1 8.8 2.3Z"/></svg>
+            </button>
+            <p class="detail-rating"><strong>RAWG rating:</strong> <span id="detail-rating"></span></p>
+            <p class="detail-rating"><strong>Metacritic:</strong> <span id="detail-metacritic"></span></p>
+            <a class="detail-website" id="detail-website" target="_blank" rel="noopener noreferrer" hidden>
+              Official website
+            </a>
+            <a class="detail-website" id="detail-epic-store" target="_blank" rel="noopener noreferrer" hidden></a>
+          </div>
+        </header>
+
+        <section class="detail-description-section" aria-labelledby="description-heading">
+          <h2 id="description-heading">About this game</h2>
+          <p class="detail-description" id="detail-description"></p>
+        </section>
+
+        <section class="detail-facts" aria-label="Game information">
+          <div><h2>Genres</h2><p id="detail-genres"></p></div>
+          <div><h2>Platforms</h2><p id="detail-platforms"></p></div>
+          <div><h2>Developer</h2><p id="detail-developers"></p></div>
+          <div><h2>Publisher</h2><p id="detail-publishers"></p></div>
+          <div><h2>Release date</h2><p id="detail-release-date"></p></div>
+          <div><h2>Age rating</h2><p id="detail-esrb-rating"></p></div>
+        </section>
+
+        <p class="detail-attribution">
+          Game details by <a href="https://rawg.io/" target="_blank" rel="noopener noreferrer">RAWG</a>.
+        </p>
+      </article>
+    </main>
+    <script src="game-data.js" defer></script>
+  </body>
+</html>

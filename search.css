@@ -1,0 +1,132 @@
+.search-toolbar {
+  margin-bottom: 34px;
+}
+
+.game-search-form {
+  display: flex;
+  min-width: 0;
+  height: 46px;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px 0 12px;
+  border: 1px solid #c8c8c8;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+}
+
+.game-search-form svg {
+  width: 25px;
+  height: 25px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: #757575;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.game-search-form input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #111;
+  font: 1rem Arial, sans-serif;
+}
+
+.game-search-form button {
+  min-height: 34px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font: 700 0.78rem Arial, sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.game-search-form:focus-within {
+  outline: 2px solid #4b3bff;
+  outline-offset: 2px;
+}
+
+.search-page-title {
+  margin: 0 0 4px;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.epic-store-section {
+  margin-top: clamp(36px, 6vw, 64px);
+}
+
+.epic-store-heading {
+  margin-bottom: 4px;
+}
+
+.epic-game-card .game-card-description {
+  -webkit-line-clamp: 5;
+}
+
+.arcade-search .home-action.is-active svg {
+  fill: none;
+}
+
+.arcade-search .game-card {
+  position: relative;
+}
+
+.arcade-search .game-card-rank {
+  position: absolute;
+  z-index: 1;
+  top: 29px;
+  left: -20px;
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.arcade-search .game-card-title {
+  min-height: 2.4em;
+  margin-top: 8px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 700px) {
+  .search-toolbar {
+    gap: 8px;
+    margin-bottom: 26px;
+  }
+
+  .game-search-form {
+    height: 40px;
+    gap: 6px;
+    padding-left: 8px;
+  }
+
+  .game-search-form button {
+    min-height: 30px;
+    padding: 0 10px;
+  }
+
+  .arcade-search .game-card-rank {
+    top: 24px;
+    left: -14px;
+    font-size: 0.9rem;
+  }
+}

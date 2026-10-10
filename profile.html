@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | Arcade Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body class="arcade-home arcade-profile">
+    <main class="home-main">
+      <div class="home-toolbar">
+        <h1 class="home-greeting">PROFILE</h1>
+        <nav class="home-actions" aria-label="Main navigation">
+          <a class="home-action" href="home.html" aria-label="Home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg>
+          </a>
+          <a class="home-action" href="search.html" aria-label="Search games">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.4"/><path d="m16.3 16.3 5 5"/></svg>
+          </a>
+          <a class="home-action" href="recommendations.html" aria-label="Recommendations">
+            <img src="pics/brain%20logo.png" alt="" aria-hidden="true" />
+          </a>
+          <a class="home-action is-active" href="profile.html" aria-label="Profile" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <section class="profile-gate" id="profile-gate" aria-labelledby="profile-gate-title">
+        <div class="profile-preview" aria-hidden="true">
+          <div class="profile-avatar">
+            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="37" r="15"/><path d="M20 82c4-17 15-25 30-25s26 8 30 25"/></svg>
+          </div>
+          <div class="profile-preview-content">
+            <span class="profile-placeholder profile-name"></span>
+            <span class="profile-placeholder"></span>
+            <span class="profile-placeholder profile-short"></span>
+            <div class="profile-preview-stats">
+              <span class="profile-placeholder"></span>
+              <span class="profile-placeholder"></span>
+              <span class="profile-placeholder profile-short"></span>
+            </div>
+          </div>
+        </div>
+        <div class="profile-gate-overlay">
+          <h2 id="profile-gate-title">Log in to continue</h2>
+          <p>Log in to open your profile and save games to your favorites.</p>
+          <a class="profile-login-button" id="profile-login-link" href="login.html">Log in to continue</a>
+        </div>
+      </section>
+      <p class="profile-return-message" id="profile-return-message" role="status" hidden>
+        Log in to continue saving this game.
+      </p>
+
+      <section class="authenticated-profile" id="authenticated-profile" hidden>
+        <div class="profile-layout">
+          <section class="profile-identity" aria-label="Profile identity">
+            <div class="profile-avatar profile-avatar-authenticated" aria-hidden="true">
+              <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="37" r="15"/><path d="M20 82c4-17 15-25 30-25s26 8 30 25"/></svg>
+            </div>
+            <div class="profile-readonly-field">
+              <h2>NAME:</h2>
+              <p id="profile-name"></p>
+            </div>
+            <div class="profile-readonly-field">
+              <h2>USERNAME:</h2>
+              <p id="profile-username"></p>
+            </div>
+          </section>
+
+          <section class="profile-account-settings" aria-label="Account settings">
+            <div class="profile-readonly-field">
+              <h2>EMAIL</h2>
+              <p id="profile-email"></p>
+            </div>
+            <div class="profile-readonly-field">
+              <h2>PASSWORD</h2>
+              <p aria-label="Password hidden">••••••••••••</p>
+              <details class="profile-action-details">
+                <summary>CHANGE PASSWORD</summary>
+                <form class="profile-form" id="password-form">
+                  <label>Current password<input name="current_password" type="password" autocomplete="current-password" required /></label>
+                  <label>New password<input name="new_password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required /></label>
+                  <button class="profile-outline-button" type="submit">Save password</button>
+                </form>
+              </details>
+            </div>
+            <div class="profile-settings-actions">
+              <details class="profile-action-details">
+                <summary>EDIT INFORMATION</summary>
+                <form class="profile-form" id="profile-form">
+                  <label>Name<input name="name" type="text" maxlength="60" required /></label>
+                  <label>Email<input name="email" type="email" maxlength="254" required /></label>
+                  <button class="profile-outline-button" type="submit">Save information</button>
+                </form>
+              </details>
+              <button class="profile-outline-button questionnaire-button" id="questionnaire-button" type="button" aria-expanded="false" aria-controls="questionnaire-panel">QUESTIONNAIRE</button>
+              <form class="questionnaire-panel" id="questionnaire-panel" hidden>
+                <button class="questionnaire-close" id="questionnaire-close" type="button" aria-label="Close questionnaire">×</button>
+                <h2>QUESTIONNAIRE</h2>
+                <p class="questionnaire-instructions">Fill out minimum 4 fields</p>
+                <div class="questionnaire-fields">
+                  <label>Name<input name="name" type="text" maxlength="60" /></label>
+                  <label>Age<input name="age" type="number" min="1" max="120" /></label>
+                  <label>Favorite game<input name="favorite_game" type="text" maxlength="100" /></label>
+                  <label>Player type
+                    <select name="player_type">
+                      <option value="">Choose a player type</option>
+                      <option>Achievers</option>
+                      <option>Explorers</option>
+                      <option>Socializers</option>
+                      <option>Competitors</option>
+                    </select>
+                  </label>
+                  <label>Religion<input name="religion" type="text" maxlength="100" /></label>
+                  <label>Time used on games (daily)<input name="daily_game_time" type="text" maxlength="60" placeholder="e.g. 2 hours" /></label>
+                  <label>Phobias<input name="phobias" type="text" maxlength="200" /></label>
+                  <label>Least favorite game<input name="least_favorite_game" type="text" maxlength="100" /></label>
+                  <label>Hobbies<input name="hobbies" type="text" maxlength="200" /></label>
+                  <label>Favorite game genre<input name="favorite_game_genre" type="text" maxlength="100" /></label>
+                  <label>Least favorite game genre<input name="least_favorite_game_genre" type="text" maxlength="100" /></label>
+                  <label>Gender<input name="gender" type="text" maxlength="60" /></label>
+                </div>
+                <button class="questionnaire-save" id="questionnaire-save" type="button">SAVE</button>
+                <p class="questionnaire-feedback" id="questionnaire-feedback" role="status" aria-live="polite"></p>
+              </form>
+              <button class="profile-logout-button" id="logout-button" type="button">LOG OUT</button>
+            </div>
+          </section>
+        </div>
+
+        <p class="profile-feedback" id="profile-feedback" role="status" aria-live="polite"></p>
+        <section class="favorite-games" aria-labelledby="favorite-games-heading">
+          <h2 id="favorite-games-heading">FAVORITE GAMES</h2>
+          <p id="favorites-empty">You have not saved any games yet. Use a heart icon to add one.</p>
+          <div class="game-grid" id="favorite-games-grid"></div>
+        </section>
+      </section>
+    </main>
+    <script src="profile.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.py[cod]
+arcade-vault.sqlite3
+arcade-vault.sqlite3-shm
+arcade-vault.sqlite3-wal

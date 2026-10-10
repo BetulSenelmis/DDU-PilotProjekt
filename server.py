@@ -25,6 +25,8 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent
 HOST = "127.0.0.1"
 PORT = 8000
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", "8000"))
 GAME_PAGE_SIZE = 6
 MAX_GAME_PAGE_SIZE = 10
 CACHE_SECONDS = 300
